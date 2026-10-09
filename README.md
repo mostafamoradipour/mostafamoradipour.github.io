@@ -1,12 +1,15 @@
 # Mostafa Moradipour — Portfolio
 
-Personal portfolio website for Mostafa Moradipour, a computer-vision engineer working across image processing, machine learning, and Python software development.
+Personal portfolio website for Mostafa Moradipour, a computer-vision engineer and Python developer.
 
-## About the site
+## Site contents
 
-The site is a lightweight static page built with HTML and local assets. The main page is `index.html`; styles and the profile image are referenced from `home_files/`.
+The site is a dependency-free static page:
 
-## View locally
+- `index.html` contains the profile, contact links, selected public projects, and responsive styles.
+- `home_files/Profile.jpg` is the profile image.
+
+## Preview locally
 
 Clone the repository and open `index.html` in a browser:
 
@@ -15,19 +18,17 @@ git clone https://github.com/mostafamoradipour/mostafamoradipour.github.io.git
 cd mostafamoradipour.github.io
 ```
 
-No build step is configured. Keep the relative paths to `home_files/` intact when serving the page.
+No build step is required. The page uses relative asset paths, so keep the `home_files/` directory beside `index.html`.
 
-## Publishing
+## Publish
 
-This repository name follows GitHub Pages' user-site convention. Configure GitHub Pages for the `main` branch in the repository settings to publish the site at:
-
-[https://mostafamoradipour.github.io](https://mostafamoradipour.github.io)
+This repository uses GitHub Pages' user-site naming convention. Configure Pages to publish from the `main` branch in repository settings. The site is served at [mostafamoradipour.github.io](https://mostafamoradipour.github.io).
 
 ## Contact
 
-- GitHub: [@mostafamoradipour](https://github.com/mostafamoradipour)
-- LinkedIn: [Mostafa Moradipour](https://www.linkedin.com/in/mostafa-moradipour-b7b743148/)
-- Email: [mostafa.moradipoor73@gmail.com](mailto:mostafa.moradipoor73@gmail.com)
+- [GitHub](https://github.com/mostafamoradipour)
+- [LinkedIn](https://www.linkedin.com/in/mostafa-moradipour-b7b743148/)
+- [Email](mailto:mostafa.moradipoor73@gmail.com)
 
 ## License
 
