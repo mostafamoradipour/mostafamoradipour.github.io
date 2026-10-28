@@ -3,83 +3,351 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio of Mostafa Moradipour, computer vision engineer and Python developer.">
+  <meta name="theme-color" content="#111820">
+  <meta name="description" content="Mostafa Moradipour is a computer vision engineer and Python developer exploring practical AI and software.">
   <meta property="og:title" content="Mostafa Moradipour — Computer Vision Engineer">
   <meta property="og:description" content="Selected work in computer vision, machine learning, and data analysis.">
   <meta property="og:type" content="website">
   <title>Mostafa Moradipour — Computer Vision Engineer</title>
   <style>
-    :root { color-scheme: light; --ink:#17212b; --muted:#526171; --line:#dbe3ea; --accent:#145da0; --paper:#f6f8fa; }
-    * { box-sizing: border-box; }
-    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; }
-    a { color:var(--accent); text-underline-offset:.18em; }
-    a:focus-visible { outline:3px solid #f0b429; outline-offset:3px; }
-    .wrap { width:min(100% - 2rem, 960px); margin-inline:auto; }
-    header { padding:4.5rem 0 3rem; background:#fff; border-bottom:1px solid var(--line); }
-    .intro { display:grid; grid-template-columns:120px 1fr; gap:2rem; align-items:center; }
-    .portrait { width:120px; height:120px; object-fit:cover; border-radius:50%; }
-    h1,h2,h3 { line-height:1.2; }
-    h1 { margin:0 0 .5rem; font-size:clamp(2rem,5vw,3rem); letter-spacing:-.03em; }
-    .role { margin:0; color:var(--muted); font-size:1.2rem; }
-    .links { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.25rem; }
-    main { padding:2.5rem 0 4rem; }
-    section { margin:0 0 3rem; }
-    h2 { margin:0 0 1rem; font-size:1.6rem; }
-    .lead { max-width:72ch; color:#354454; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
-    .card { height:100%; padding:1.25rem; background:#fff; border:1px solid var(--line); border-radius:12px; }
-    .card h3 { margin:0 0 .5rem; font-size:1.15rem; }
-    .card p { margin:.4rem 0 1rem; color:var(--muted); }
-    .tag { display:inline-block; margin:.2rem .35rem .2rem 0; padding:.15rem .55rem; border:1px solid var(--line); border-radius:999px; color:#354454; font-size:.85rem; }
-    footer { padding:1.5rem 0; color:var(--muted); border-top:1px solid var(--line); background:#fff; }
-    @media (max-width:600px) { header { padding:3rem 0 2rem; } .intro { grid-template-columns:72px 1fr; gap:1rem; } .portrait { width:72px; height:72px; } }
+    :root {
+      color-scheme: dark;
+      --bg: #111820;
+      --bg-soft: #17212b;
+      --card: #19242f;
+      --text: #f3f6f8;
+      --muted: #aab8c4;
+      --line: rgba(211, 227, 237, .16);
+      --accent: #73e0cf;
+      --accent-strong: #a1f3df;
+      --content: 1080px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-underline-offset: .2em; }
+    a:hover { color: var(--accent-strong); }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+    .wrap { width: min(calc(100% - 2.5rem), var(--content)); margin-inline: auto; }
+    .hero {
+      position: relative;
+      min-height: min(900px, 100svh);
+      min-height: max(720px, 100svh);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(50, 86, 98, .22), transparent 45%),
+        linear-gradient(155deg, #151e27 0%, #111820 65%, #10171e 100%);
+    }
+    #particles { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; opacity: .62; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      z-index: -1;
+      height: 22%;
+      background: linear-gradient(transparent, var(--bg));
+      pointer-events: none;
+    }
+    .hero-inner { width: min(calc(100% - 2rem), 780px); text-align: center; padding: 5rem 0 7rem; }
+    .eyebrow { margin: 0 0 1rem; color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(3rem, 9vw, 6.8rem); line-height: .98; letter-spacing: -.065em; font-weight: 650; }
+    h1 span { display: block; color: #dce7ed; }
+    .role { margin: 1.4rem 0 0; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.3rem); letter-spacing: .03em; }
+    .socials { display: flex; justify-content: center; gap: .8rem; margin: 2rem 0 1.4rem; }
+    .social-link {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(234, 243, 247, .8);
+      border-radius: 50%;
+      color: var(--text);
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .social-link:hover { transform: translateY(-3px); background: rgba(115, 224, 207, .12); border-color: var(--accent); color: var(--accent-strong); }
+    .social-link svg { width: 20px; height: 20px; fill: currentColor; }
+    .hero-nav { display: flex; justify-content: center; gap: 2rem; }
+    .hero-nav a { color: #d4dee4; font-size: .95rem; text-decoration: none; }
+    .hero-nav a:hover { color: var(--accent-strong); }
+    .scroll-cue {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      display: grid;
+      justify-items: center;
+      gap: .3rem;
+      transform: translateX(-50%);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .chevron { width: 18px; height: 18px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); }
+    main { padding: 2rem 0 5rem; }
+    section { padding: 4.25rem 0; }
+    .section-kicker { margin: 0 0 .45rem; color: var(--accent); font-size: .75rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    h2 { margin: 0 0 1.2rem; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; letter-spacing: -.04em; }
+    .section-intro { max-width: 70ch; margin: 0; color: var(--muted); font-size: 1.08rem; }
+    .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.2rem; }
+    .expertise-card, .project-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(29, 43, 55, .92), rgba(23, 33, 43, .95));
+    }
+    .expertise-card { padding: 1.5rem; }
+    .number { color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .1em; }
+    .expertise-card h3 { margin: .65rem 0 .4rem; font-size: 1.15rem; }
+    .expertise-card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.4rem; }
+    .skill { padding: .28rem .72rem; border: 1px solid var(--line); border-radius: 999px; color: #d6e0e6; font-size: .84rem; }
+    .projects { border-top: 1px solid var(--line); }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.2rem; }
+    .project-card { overflow: hidden; transition: transform .22s ease, border-color .22s ease; }
+    .project-card:hover { transform: translateY(-5px); border-color: rgba(115, 224, 207, .55); }
+    .project-art { position: relative; height: 190px; overflow: hidden; background: #192630; }
+    .road-art { background: linear-gradient(135deg, #20343b, #18252d 65%, #1b2830); }
+    .road-art::before {
+      content: "";
+      position: absolute;
+      width: 170%;
+      height: 78%;
+      left: -35%;
+      top: 42%;
+      transform: rotate(-12deg);
+      border: 2px solid rgba(115, 224, 207, .2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 26px rgba(115, 224, 207, .035), 0 0 0 54px rgba(115, 224, 207, .03);
+    }
+    .road-art::after {
+      content: "";
+      position: absolute;
+      left: 15%;
+      top: 52%;
+      width: 70%;
+      border-top: 2px dashed rgba(232, 241, 242, .52);
+      transform: rotate(-12deg);
+    }
+    .pin { position: absolute; z-index: 1; width: 11px; height: 11px; border: 2px solid #b9ffec; border-radius: 50%; background: var(--accent); box-shadow: 0 0 20px rgba(115,224,207,.9); }
+    .pin-one { left: 34%; top: 34%; } .pin-two { left: 67%; top: 59%; } .pin-three { left: 52%; top: 74%; }
+    .movie-art { display: flex; align-items: center; justify-content: center; gap: .8rem; background: radial-gradient(ellipse at center, #34485a, #19232c 72%); }
+    .poster { width: 86px; height: 126px; border: 1px solid rgba(255,255,255,.24); border-radius: 7px; box-shadow: 0 14px 28px rgba(0,0,0,.25); transform: rotate(-9deg); background: linear-gradient(155deg,#f0a45e,#8d4a55 52%,#282e49); }
+    .poster:nth-child(2) { transform: translateY(-8px); background: linear-gradient(155deg,#9ec2af,#375a61 48%,#1a2936); }
+    .poster:nth-child(3) { transform: rotate(9deg); background: linear-gradient(155deg,#e3cc91,#b16e55 50%,#44334a); }
+    .poster::after { content: ""; display: block; width: 36px; height: 2px; margin: 96px auto 0; background: rgba(255,255,255,.66); box-shadow: 0 7px 0 rgba(255,255,255,.35); }
+    .project-copy { padding: 1.35rem 1.5rem 1.5rem; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .7rem; }
+    .project-meta span { color: var(--accent); font-size: .75rem; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+    .project-copy h3 { margin: 0; font-size: 1.35rem; line-height: 1.3; }
+    .project-copy h3 a { text-decoration: none; }
+    .project-copy p { min-height: 3.4em; margin: .6rem 0 1.1rem; color: var(--muted); }
+    .project-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--accent-strong); font-weight: 650; text-decoration: none; }
+    .project-link span { transition: transform .2s ease; }
+    .project-link:hover span { transform: translateX(4px); }
+    .contact { padding: 3.25rem; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(130deg, rgba(115,224,207,.09), rgba(25,36,47,.9) 52%); }
+    .contact h2 { margin-bottom: .7rem; }
+    .contact p { max-width: 60ch; margin: 0 0 1.35rem; color: var(--muted); }
+    .button { display: inline-flex; align-items: center; min-height: 46px; padding: .6rem 1.1rem; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent-strong); font-weight: 650; text-decoration: none; }
+    .button:hover { background: rgba(115,224,207,.12); }
+    footer { padding: 1.5rem 0 2rem; border-top: 1px solid var(--line); color: #91a1ac; font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 1rem; }
+    @media (max-width: 760px) {
+      .expertise-grid { grid-template-columns: 1fr; }
+      .expertise-card { padding: 1.25rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      section { padding: 3.4rem 0; }
+      .contact { padding: 2rem 1.4rem; }
+    }
+    @media (max-width: 460px) {
+      .hero { min-height: 690px; min-height: 100svh; }
+      .hero-inner { padding-bottom: 5rem; }
+      h1 { font-size: clamp(2.7rem, 13vw, 4rem); }
+      .socials { gap: .55rem; }
+      .social-link { width: 44px; height: 44px; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap intro">
-      <img class="portrait" src="./home_files/Profile.jpg" alt="Portrait of Mostafa Moradipour">
-      <div>
-        <h1>Mostafa Moradipour</h1>
-        <p class="role">Computer Vision Engineer · Python Developer</p>
-        <nav class="links" aria-label="Contact and profiles">
-          <a href="https://github.com/mostafamoradipour" rel="me">GitHub</a>
-          <a href="https://www.linkedin.com/in/mostafa-moradipour-b7b743148/" rel="me">LinkedIn</a>
-          <a href="mailto:mostafa.moradipoor73@gmail.com">Email</a>
-        </nav>
-      </div>
+  <header class="hero" id="top">
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <p class="eyebrow">Portfolio · 2026</p>
+      <h1>Mostafa <span>Moradipour</span></h1>
+      <p class="role">Computer Vision Engineer <span aria-hidden="true">·</span> Python Developer</p>
+      <nav class="socials" aria-label="Social and contact links">
+        <a class="social-link" href="mailto:mostafa.moradipoor73@gmail.com" aria-label="Send email" title="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.1L4.4 7h-.9l8.5 6.3L20.5 7h-.9L12 12.1Z"/></svg>
+        </a>
+        <a class="social-link" href="https://github.com/mostafamoradipour" aria-label="GitHub profile" title="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 2.3 3.9 1.8.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.2 3.1.8.8 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1 .8 2v3c0 .3.2.7.8.6A11.1 11.1 0 0 0 12 .9Z"/></svg>
+        </a>
+        <a class="social-link" href="https://www.linkedin.com/in/mostafa-moradipour-b7b743148/" aria-label="LinkedIn profile" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.2a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3.5 9h3.4v11.5H3.5V9Zm5.6 0h3.3v1.6h.1a3.7 3.7 0 0 1 3.3-1.8c3.5 0 4.2 2.3 4.2 5.3v6.4h-3.4v-5.7c0-1.4 0-3.2-2-3.2s-2.2 1.5-2.2 3.1v5.8H9.1V9Z"/></svg>
+        </a>
+      </nav>
+      <nav class="hero-nav" aria-label="Page sections">
+        <a href="#about">About me</a>
+        <a href="#projects">Projects</a>
+      </nav>
     </div>
+    <a class="scroll-cue" href="#about"><span>Explore</span><span class="chevron" aria-hidden="true"></span></a>
   </header>
 
   <main class="wrap">
-    <section aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <p class="lead">I work on computer vision, image processing, and machine learning, with a strong focus on Python. My experience also includes data preparation, web scraping, and backend development. I hold a master’s degree in Communications Engineering and enjoy solving practical problems with clear, maintainable software.</p>
+    <section id="about" aria-labelledby="about-title">
+      <p class="section-kicker">A little about my work</p>
+      <h2 id="about-title">My expertise</h2>
+      <p class="section-intro">I’m a computer vision engineer with a background in Communications Engineering. I build with Python and explore practical ways to turn images, video, and data into useful systems.</p>
+      <div class="expertise-grid">
+        <article class="expertise-card">
+          <span class="number">01 / VISION</span>
+          <h3>Computer vision</h3>
+          <p>Image processing, visual recognition, and multi-camera understanding, from model experiments to applied workflows.</p>
+        </article>
+        <article class="expertise-card">
+          <span class="number">02 / ENGINEERING</span>
+          <h3>Python development</h3>
+          <p>Building maintainable tools and pipelines, with experience spanning data preparation, web scraping, and backend development.</p>
+        </article>
+        <article class="expertise-card">
+          <span class="number">03 / EXPLORATION</span>
+          <h3>Applied machine learning</h3>
+          <p>Using machine learning and data analysis to investigate real problems and communicate results clearly.</p>
+        </article>
+      </div>
+      <div class="skill-list" aria-label="Areas and tools">
+        <span class="skill">Python</span><span class="skill">Computer vision</span><span class="skill">Image processing</span><span class="skill">Machine learning</span><span class="skill">PyTorch</span><span class="skill">OpenCV</span><span class="skill">Data analysis</span>
+      </div>
     </section>
 
-    <section aria-labelledby="work-heading">
-      <h2 id="work-heading">Selected public projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3><a href="https://github.com/mostafamoradipour/RoadSafetyPatterns">Road Safety Patterns</a></h3>
-          <p>A notebook-based exploration of road-safety data, organized around descriptive, temporal, and geographic analysis.</p>
-          <span class="tag">Python</span><span class="tag">Data analysis</span><span class="tag">Jupyter</span>
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <p class="section-kicker">Selected work</p>
+      <h2 id="projects-title">Featured projects</h2>
+      <p class="section-intro">A selection of public work in data analysis and machine learning. Each project links to its repository for details and source materials.</p>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art road-art" aria-hidden="true"><span class="pin pin-one"></span><span class="pin pin-two"></span><span class="pin pin-three"></span></div>
+          <div class="project-copy">
+            <div class="project-meta"><span>Data analysis</span><span>·</span><span>Jupyter</span></div>
+            <h3><a href="https://github.com/mostafamoradipour/RoadSafetyPatterns" target="_blank" rel="noopener noreferrer">Road Safety Patterns</a></h3>
+            <p>Exploratory analysis of road-safety data through descriptive, temporal, and geographic notebooks.</p>
+            <a class="project-link" href="https://github.com/mostafamoradipour/RoadSafetyPatterns" target="_blank" rel="noopener noreferrer">Explore repository <span aria-hidden="true">→</span></a>
+          </div>
         </article>
-        <article class="card">
-          <h3><a href="https://github.com/mostafamoradipour/MovieRecommenderSystem">Movie Recommender System</a></h3>
-          <p>A notebook workflow for content-based movie recommendations using textual metadata, TF-IDF features, and cosine similarity.</p>
-          <span class="tag">Python</span><span class="tag">Machine learning</span><span class="tag">Recommendation</span>
+        <article class="project-card">
+          <div class="project-art movie-art" aria-hidden="true"><span class="poster"></span><span class="poster"></span><span class="poster"></span></div>
+          <div class="project-copy">
+            <div class="project-meta"><span>Machine learning</span><span>·</span><span>Recommendations</span></div>
+            <h3><a href="https://github.com/mostafamoradipour/MovieRecommenderSystem" target="_blank" rel="noopener noreferrer">Movie Recommender System</a></h3>
+            <p>A content-based notebook workflow that compares movie metadata with TF-IDF features and cosine similarity.</p>
+            <a class="project-link" href="https://github.com/mostafamoradipour/MovieRecommenderSystem" target="_blank" rel="noopener noreferrer">Explore repository <span aria-hidden="true">→</span></a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section aria-labelledby="focus-heading">
-      <h2 id="focus-heading">Areas of focus</h2>
-      <p><span class="tag">Computer vision</span><span class="tag">Image processing</span><span class="tag">Machine learning</span><span class="tag">Python</span><span class="tag">Data analysis</span><span class="tag">Backend development</span></p>
+    <section aria-labelledby="contact-title">
+      <div class="contact">
+        <p class="section-kicker">Get in touch</p>
+        <h2 id="contact-title">Let’s connect.</h2>
+        <p>Have a question or a project in mind? I’d be glad to hear from you.</p>
+        <a class="button" href="mailto:mostafa.moradipoor73@gmail.com">Send me an email</a>
+      </div>
     </section>
   </main>
 
-  <footer><div class="wrap">© <span id="year"></span> Mostafa Moradipour</div></footer>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Mostafa Moradipour</span><a href="#top">Back to top ↑</a></div></footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    (() => {
+      const canvas = document.getElementById("particles");
+      const ctx = canvas && canvas.getContext("2d");
+      if (!ctx) return;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let points = [];
+      let width = 0;
+      let height = 0;
+      let frame = 0;
+
+      function resize() {
+        const scale = Math.min(window.devicePixelRatio || 1, 2);
+        width = canvas.clientWidth;
+        height = canvas.clientHeight;
+        canvas.width = Math.round(width * scale);
+        canvas.height = Math.round(height * scale);
+        ctx.setTransform(scale, 0, 0, scale, 0, 0);
+        const count = Math.min(68, Math.max(28, Math.round(width * height / 15000)));
+        points = Array.from({ length: count }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - .5) * .22,
+          vy: (Math.random() - .5) * .22,
+          r: Math.random() * 1.4 + .7
+        }));
+        draw();
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        const linkDistance = Math.min(155, width * .26);
+        for (let i = 0; i < points.length; i++) {
+          const p = points[i];
+          if (!reducedMotion) {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+          }
+          for (let j = i + 1; j < points.length; j++) {
+            const q = points[j];
+            const dx = p.x - q.x;
+            const dy = p.y - q.y;
+            const distance = Math.hypot(dx, dy);
+            if (distance < linkDistance) {
+              ctx.strokeStyle = "rgba(173, 206, 216, " + (1 - distance / linkDistance) * .23 + ")";
+              ctx.lineWidth = .7;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.stroke();
+            }
+          }
+          ctx.fillStyle = "rgba(206, 229, 235, .72)";
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function animate(time) {
+        if (reducedMotion) return;
+        if (time - frame > 40) {
+          draw();
+          frame = time;
+        }
+        window.requestAnimationFrame(animate);
+      }
+
+      resize();
+      window.addEventListener("resize", resize, { passive: true });
+      if (!reducedMotion) window.requestAnimationFrame(animate);
+    })();
+  </script>
 </body>
 </html>
