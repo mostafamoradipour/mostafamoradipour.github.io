@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111820">
-  <meta name="description" content="Mostafa Moradipour is a computer vision engineer and Python developer exploring practical AI and software.">
-  <meta property="og:title" content="Mostafa Moradipour — Computer Vision Engineer">
-  <meta property="og:description" content="Selected work in computer vision, machine learning, and data analysis.">
+  <meta name="description" content="Mostafa Moradipour is an AI engineer specializing in computer vision, generative AI, and production video analytics systems.">
+  <meta property="og:title" content="Mostafa Moradipour — AI Engineer">
+  <meta property="og:description" content="Computer vision, generative AI, multi-camera analytics, and selected engineering work.">
   <meta property="og:type" content="website">
-  <title>Mostafa Moradipour — Computer Vision Engineer</title>
+  <title>Mostafa Moradipour — AI Engineer</title>
   <style>
     :root {
       color-scheme: dark;
@@ -112,6 +112,19 @@
     .expertise-card p { margin: 0; color: var(--muted); font-size: .95rem; }
     .skill-list { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.4rem; }
     .skill { padding: .28rem .72rem; border: 1px solid var(--line); border-radius: 999px; color: #d6e0e6; font-size: .84rem; }
+    .journey { border-top: 1px solid var(--line); }
+    .journey-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .journey-column { padding: 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(29, 43, 55, .72), rgba(23, 33, 43, .82)); }
+    .journey-heading { margin: 0 0 1.4rem; font-size: 1.25rem; }
+    .journey-item { position: relative; margin: 0 0 1.35rem; padding: 0 0 1.3rem 1.2rem; border-left: 1px solid rgba(115,224,207,.42); }
+    .journey-item:last-of-type { margin-bottom: 0; padding-bottom: 0; border-left-color: transparent; }
+    .journey-item::before { content: ""; position: absolute; top: .16rem; left: -.33rem; width: .55rem; height: .55rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 16px rgba(115,224,207,.4); }
+    .journey-date { margin: 0 0 .35rem; color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .1em; }
+    .journey-item h4 { margin: 0; font-size: 1.02rem; }
+    .journey-org { margin: .12rem 0 .35rem !important; color: #dce7ed !important; font-weight: 600; }
+    .journey-item p:last-child { margin: 0; color: var(--muted); font-size: .93rem; }
+    .journey-note { margin-top: 1.25rem; padding: 1.1rem; border-radius: 12px; background: rgba(115,224,207,.07); }
+    .journey-note p { margin: .45rem 0 0; color: var(--muted); font-size: .93rem; }
     .projects { border-top: 1px solid var(--line); }
     .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.2rem; }
     .project-card { overflow: hidden; transition: transform .22s ease, border-color .22s ease; }
@@ -166,7 +179,7 @@
     @media (max-width: 760px) {
       .expertise-grid { grid-template-columns: 1fr; }
       .expertise-card { padding: 1.25rem; }
-      .project-grid { grid-template-columns: 1fr; }
+      .project-grid, .journey-grid { grid-template-columns: 1fr; }
       section { padding: 3.4rem 0; }
       .contact { padding: 2rem 1.4rem; }
     }
@@ -189,7 +202,7 @@
     <div class="hero-inner">
       <p class="eyebrow">Portfolio · 2026</p>
       <h1>Mostafa <span>Moradipour</span></h1>
-      <p class="role">Computer Vision Engineer <span aria-hidden="true">·</span> Python Developer</p>
+      <p class="role">AI Engineer <span aria-hidden="true">·</span> Computer Vision &amp; Generative AI</p>
       <nav class="socials" aria-label="Social and contact links">
         <a class="social-link" href="mailto:mostafa.moradipoor73@gmail.com" aria-label="Send email" title="Email">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.1L4.4 7h-.9l8.5 6.3L20.5 7h-.9L12 12.1Z"/></svg>
@@ -203,6 +216,7 @@
       </nav>
       <nav class="hero-nav" aria-label="Page sections">
         <a href="#about">About me</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
       </nav>
     </div>
@@ -213,7 +227,7 @@
     <section id="about" aria-labelledby="about-title">
       <p class="section-kicker">A little about my work</p>
       <h2 id="about-title">My expertise</h2>
-      <p class="section-intro">I’m a computer vision engineer with a background in Communications Engineering. I build with Python and explore practical ways to turn images, video, and data into useful systems.</p>
+      <p class="section-intro">I’m an AI engineer focused on computer vision and generative AI. I build end-to-end systems that move from model research and fine-tuning to real-time deployment, with experience in multi-camera video analytics, face authentication, document analysis, and 3D human pose estimation.</p>
       <div class="expertise-grid">
         <article class="expertise-card">
           <span class="number">01 / VISION</span>
@@ -222,17 +236,71 @@
         </article>
         <article class="expertise-card">
           <span class="number">02 / ENGINEERING</span>
-          <h3>Python development</h3>
-          <p>Building maintainable tools and pipelines, with experience spanning data preparation, web scraping, and backend development.</p>
+          <h3>Generative AI</h3>
+          <p>Exploring generative models and agentic systems, with a focus on practical applications and reliable integration into AI products.</p>
         </article>
         <article class="expertise-card">
           <span class="number">03 / EXPLORATION</span>
-          <h3>Applied machine learning</h3>
-          <p>Using machine learning and data analysis to investigate real problems and communicate results clearly.</p>
+          <h3>Production AI systems</h3>
+          <p>Connecting models to streaming applications with technologies such as NVIDIA DeepStream and GStreamer.</p>
         </article>
       </div>
       <div class="skill-list" aria-label="Areas and tools">
-        <span class="skill">Python</span><span class="skill">Computer vision</span><span class="skill">Image processing</span><span class="skill">Machine learning</span><span class="skill">PyTorch</span><span class="skill">OpenCV</span><span class="skill">Data analysis</span>
+        <span class="skill">Python</span><span class="skill">Computer vision</span><span class="skill">Generative AI</span><span class="skill">YOLOv5–v11</span><span class="skill">PyTorch</span><span class="skill">OpenCV</span><span class="skill">NVIDIA DeepStream</span><span class="skill">GStreamer</span><span class="skill">Multi-camera analytics</span>
+      </div>
+    </section>
+
+    <section class="journey" id="experience" aria-labelledby="experience-title">
+      <p class="section-kicker">The path so far</p>
+      <h2 id="experience-title">Experience &amp; education</h2>
+      <p class="section-intro">A career shaped by applied computer vision, research, and building real-time AI systems.</p>
+      <div class="journey-grid">
+        <div class="journey-column">
+          <h3 class="journey-heading">Experience</h3>
+          <article class="journey-item">
+            <p class="journey-date">JUL 2026 — PRESENT · MASHHAD</p>
+            <h4>Artificial Intelligence Researcher</h4>
+            <p class="journey-org">Part AI Research Center</p>
+            <p>Research and development across applied artificial intelligence.</p>
+          </article>
+          <article class="journey-item">
+            <p class="journey-date">NOV 2022 — DEC 2025 · REMOTE</p>
+            <h4>AI Engineer</h4>
+            <p class="journey-org">Leamech</p>
+            <p>Led projects for a unified surveillance system and digital twin generation.</p>
+          </article>
+          <article class="journey-item">
+            <p class="journey-date">AUG 2020 — OCT 2022 · TEHRAN</p>
+            <h4>Computer Vision Engineer</h4>
+            <p class="journey-org">Part AI Research Center</p>
+            <p>Worked on human face authentication and video analysis services.</p>
+          </article>
+          <article class="journey-item">
+            <p class="journey-date">AUG 2019 — DEC 2019</p>
+            <h4>Computer Vision Engineer</h4>
+            <p class="journey-org">Ofogh</p>
+            <p>Contributed to aerial image analysis.</p>
+          </article>
+        </div>
+        <div class="journey-column">
+          <h3 class="journey-heading">Education</h3>
+          <article class="journey-item education-item">
+            <p class="journey-date">SEP 2025 — PRESENT · MASHHAD</p>
+            <h4>Ph.D., Artificial Intelligence</h4>
+            <p class="journey-org">Ferdowsi University of Mashhad</p>
+            <p>Research focus includes artificial intelligence and reinforcement learning.</p>
+          </article>
+          <article class="journey-item education-item">
+            <p class="journey-date">SEP 2017 — JUL 2020 · TEHRAN</p>
+            <h4>M.Sc., Electrical, Electronics &amp; Communications Engineering</h4>
+            <p class="journey-org">Sharif University of Technology</p>
+            <p>Graduate studies with a focus on image processing and computer vision.</p>
+          </article>
+          <div class="journey-note">
+            <span class="number">CURRENT FOCUS</span>
+            <p>Bridging computer vision, generative AI, and robust systems that work with live visual data.</p>
+          </div>
+        </div>
       </div>
     </section>
 
