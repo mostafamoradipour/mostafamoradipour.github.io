@@ -1,14 +1,14 @@
 # Mostafa Moradipour — Portfolio
 
-Personal portfolio website for Mostafa Moradipour, a computer vision engineer and Python developer.
+Personal portfolio for Mostafa Moradipour, an AI engineer focused on computer vision, generative AI, and applied video analytics.
 
 ## Site contents
 
 The site is a dependency-free static page:
 
-- `index.html` contains the profile, contact links, expertise, and selected public projects.
+- `index.html` contains the profile, contact links, expertise, career and education timeline, and selected public projects.
 - The dark landing section uses a small canvas particle animation, with a reduced-motion fallback.
-- Project artwork is drawn with CSS; no external image or icon service is required.
+- Project cards use custom workflow illustrations stored in their respective GitHub repositories; social icons and background artwork are rendered in-page.
 
 ## Preview locally
 
